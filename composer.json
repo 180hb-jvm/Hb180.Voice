@@ -1,6 +1,6 @@
 {
     "description": "",
-    "type": "neos-plugin",
+    "type": "neos-site",
     "name": "hb180/voice",
     "require": {
         "neos/flow": "*"
