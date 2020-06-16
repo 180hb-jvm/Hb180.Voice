@@ -1,0 +1,18 @@
+{
+    "description": "",
+    "type": "neos-plugin",
+    "name": "hb180/voice",
+    "require": {
+        "neos/flow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hb180\\Voice\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Hb180.Voice"
+        }
+    }
+}
