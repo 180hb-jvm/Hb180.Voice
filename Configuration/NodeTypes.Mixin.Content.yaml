@@ -1,0 +1,11 @@
+Hb180.Voice:ContentMixin:
+  abstract: TRUE
+  superTypes:
+    Neos.Neos:Content: TRUE
+  label: ${node.nodeType.localConfiguration.options.contentType}
+  ui:
+    inspector:
+      groups:
+        props:
+          tab: default
+          label: Props

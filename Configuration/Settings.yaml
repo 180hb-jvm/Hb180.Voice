@@ -1,0 +1,23 @@
+Neos:
+  RedirectHandler:
+    NeosAdapter:
+      restrictByNodeType:
+        'Hb180.Vice:Mixin.Response': TRUE
+  Fusion:
+    defaultContext:
+      Content: Hb180\Voice\Eel\Helper\ContentHelper
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          Hb180.Voice:
+            - Main
+            - 'NodeTypes/*'
+  Flow:
+    mvc:
+      routes:
+        Hb180.Voice:
+          position: 'start'
+    error:
+      exceptionHandler:
+        className: 'Hb180\Voice\Error\DebugExceptionHandler'

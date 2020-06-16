@@ -1,0 +1,29 @@
+Hb180.Voice:Suggestions:
+  superTypes:
+    Hb180.Voice:ContentMixin: TRUE
+  ui:
+    label: 'Suggestions'
+    inlineEditable: true
+    icon: icon-tags
+  options:
+    contentType: SUGGESTIONS
+  properties:
+    elements:
+      type: repeatable
+      options:
+        hideFromResponse: true
+      ui:
+        label: Elements
+        reloadIfChanged: true
+        inspector:
+          group: props
+          editorOptions:
+            buttonAddLabel: 'Add new element'
+            properties:
+              text:
+                editorOptions:
+                  placeholder: 'Text'
+                validation:
+                  'Neos.Neos/Validation/NotEmptyValidator': []
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []

@@ -1,0 +1,18 @@
+'Hb180.Voice:Mixin.Response':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Document': TRUE
+  ui:
+    icon: 'icon-comment-dots'
+    label: 'Mixin Response'
+  childNodes:
+    simpleresponse:
+      type: Hb180.Voice:SimpleResponse
+      position: start
+    main:
+      type: 'Hb180.Voice:ContentCollection'
+  constraints:
+    nodeTypes:
+      Neos.Neos:Document: FALSE
+  properties:
+    titleOverride: []

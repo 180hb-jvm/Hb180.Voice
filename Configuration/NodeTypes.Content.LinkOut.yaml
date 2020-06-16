@@ -1,0 +1,29 @@
+Hb180.Voice:LinkOut:
+  superTypes:
+    Hb180.Voice:ContentMixin: TRUE
+  ui:
+    label: 'Link out'
+    icon: icon-external-link-alt
+  options:
+    contentType: LINK_OUT_SUGESTIONS
+  properties:
+    name:
+      type: string
+      ui:
+        label: Name
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Name...'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+    url:
+      type: string
+      ui:
+        label: Url
+        reloadIfChanged: true
+        inspector:
+          group: props
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []

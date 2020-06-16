@@ -1,0 +1,44 @@
+Hb180.Voice:SimpleResponse:
+  superTypes:
+    Hb180.Voice:ContentMixin: TRUE
+  ui:
+    label: 'Simple Response'
+    icon: icon-comment-dots
+  options:
+    contentType: SIMPLE_RESPONSE
+  properties:
+    speech:
+      type: string
+      ui:
+        label: Speech
+        reloadIfChanged: true
+#        help:
+#          message: 'If you want to set audio tag in diffirent location than to the end of text then use "{audio}" it will be replaced with audio tag'
+        inspector:
+          group: 'props'
+          editor: 'Neos.Neos/Inspector/Editors/CodeEditor'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+    text:
+      type: string
+      ui:
+        label: Text
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Text...'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+    audio:
+      type: 'Neos\Media\Domain\Model\Asset'
+      options:
+        hideFromResponse: true
+      ui:
+        label: 'Audio'
+        reloadIfChanged: true
+        inspector:
+          group: 'props'
+          editorOptions:
+            accept:
+              - 'audio/mpeg'
+              - 'audio/mp3'

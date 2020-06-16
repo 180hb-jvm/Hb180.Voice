@@ -1,0 +1,18 @@
+'Hb180.Voice:Context':
+  superTypes:
+    'Hb180.Voice:Mixin.Catalog': TRUE
+  ui:
+    label: 'Context'
+    icon: icon-comment-medical
+#  childNodes:
+#    main: ~
+  constraints:
+    nodeTypes:
+      Neos.Neos:Document: FALSE
+      Hb180.Voice:Mixin.Catalog: FALSE
+      Hb180.Voice:Mixin.Response: TRUE
+
+Hb180.Voice:Mixin.Catalog:
+  constraints:
+    nodeTypes:
+      Hb180.Voice:Context: FALSE

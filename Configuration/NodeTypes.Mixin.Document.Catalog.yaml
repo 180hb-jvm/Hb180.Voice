@@ -1,0 +1,40 @@
+'Hb180.Voice:Mixin.Catalog':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Document': TRUE
+    'Neos.Neos:Hidable': FALSE
+    'Neos.Neos:Timable': FALSE
+    'Neos.Seo:TitleTagMixin': FALSE
+    'Neos.Seo:SeoMetaTagsMixin': FALSE
+    'Neos.Seo:TwitterCardMixin': FALSE
+    'Neos.Seo:CanonicalLinkMixin': FALSE
+    'Neos.Seo:OpenGraphMixin': FALSE
+    'Neos.Seo:XmlSitemapMixin': FALSE
+  label: ${node.properties.uriPathSegment}
+  ui:
+    icon: 'icon-folder'
+    label: 'Catalog'
+#  childNodes:
+#    main: ~
+    creationDialog:
+      elements:
+        title: ~
+        uriPathSegment:
+          type: string
+          ui:
+            label: UriPathSegment
+            editor: 'Neos.Neos/Inspector/Editors/TextFieldEditor'
+          validation:
+            'Neos.Neos/Validation/NotEmptyValidator': []
+  options:
+    nodeCreationHandlers:
+      documentTitle:
+        nodeCreationHandler: 'Hb180\Voice\NodeCreationHandler\NodeCreationHandler'
+  constraints:
+    nodeTypes:
+      Neos.Neos:Document: FALSE
+      Hb180.Voice:Mixin.Catalog: TRUE
+      Hb180.Voice:Mixin.Response: TRUE
+  properties:
+    title: []
+    titleOverride: []

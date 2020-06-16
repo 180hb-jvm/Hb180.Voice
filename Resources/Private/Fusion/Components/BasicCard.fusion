@@ -1,0 +1,47 @@
+prototype(Hb180.Voice:BasicCard.DataStructure) < prototype(Hb180.Voice:DefaultContentElement){
+    url = Neos.Neos:ImageUri{
+        @if.notEmpty = ${node.properties.url?TRUE:FALSE}
+        asset = ${node.properties.url}
+        maximumWidth = 720
+        maximumHeight = 720
+    }
+
+    prototype(Hb180.Voice:PropertyValueRenderer){
+        value.@process.test = Neos.Fusion:Case{
+            audio {
+                condition = ${itemKey == 'url' && props.url}
+                renderer = ${props.url}
+            }
+            text{
+                condition = ${itemKey == 'text'}
+                renderer = ${Content.br2nl(value)}
+            }
+            default{
+                condition = ${true}
+                renderer = ${value}
+            }
+        }
+    }
+}
+
+prototype(Hb180.Voice:BasicCard) < prototype(Neos.Fusion:Component){
+    renderer = afx`
+        <div class="image">
+            <img src={component.data.url} />
+        </div>
+        <div class="card">
+            <div class="title">
+                <Neos.Neos:Editable property="title" />
+            </div>
+            <div class="subtitle">
+                <Neos.Neos:Editable property="subtitle" />
+            </div>
+            <div class="text">
+                <Neos.Neos:Editable property="text" />
+            </div>
+            <button class="button button-wide text-uppercase text-color-blue" @if.test={node.properties.buttonUrl}>
+                <Neos.Neos:Editable property="buttonText" />
+            </button>
+        </div>
+    `
+}

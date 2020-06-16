@@ -1,0 +1,14 @@
+'Hb180.Voice:Homepage':
+  superTypes:
+    'Hb180.Voice:Mixin.Catalog': true
+  ui:
+    icon: 'icon-globe'
+    label: 'Homepage'
+  constraints:
+    nodeTypes:
+      Neos.Neos:Document: FALSE
+
+Hb180.Voice:Mixin.Catalog:
+  constraints:
+    nodeTypes:
+      Hb180.Voice:Homepage: FALSE
