@@ -1,0 +1,18 @@
+'Hb180.Voice:ContextCatalog':
+  superTypes:
+    'Hb180.Voice:Mixin.Catalog': TRUE
+  ui:
+    label: 'Catalog'
+    icon: icon-comments
+#  childNodes:
+#    main: ~
+  constraints:
+    nodeTypes:
+      Neos.Neos:Document: FALSE
+      Hb180.Voice:Mixin.Catalog: FALSE
+      Hb180.Voice:Context: TRUE
+
+Hb180.Voice:Mixin.Catalog:
+  constraints:
+    nodeTypes:
+      Hb180.Voice:Context: FALSE

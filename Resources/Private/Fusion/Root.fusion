@@ -1,0 +1,80 @@
+include: **/*.fusion
+include: Override.fusion
+
+page = Neos.NodeTypes:Page{
+    head{
+        stylesheets{
+            fonts = afx`
+                <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+            `
+            backgroundStyles = Neos.Fusion:Tag{
+                tagName = 'link'
+                attributes{
+                    rel = 'stylesheet'
+                    href = Neos.Fusion:ResourceUri{
+                        path = 'resource://Hb180.Voice/Public/Styles/backend.css'
+                        @process.timestamp = ${value+'?v='+Date.today().timestamp}
+                    }
+                }
+            }
+        }
+    }
+
+    body.content.main = Neos.Fusion:Value{
+        value = Hb180.Voice:Body
+        value.@if.test = ${q(documentNode).is('[instanceof Hb180.Voice:Mixin.Response]')}
+    }
+
+    @context.pageView = ${true}
+
+    body.content.main.@process.tableView = afx`
+        <div class="page-container">
+            <div class="page">
+                <Neos.Fusion:Loop items={value.dailyContentElement} itemName="component">
+                    <Hb180.Voice:DatePageContent @context.node={component.node}/>
+                </Neos.Fusion:Loop>
+                <Neos.Neos:ContentElementWrapping node={q(documentNode).find('main').get(0)} @if.test={q(documentNode).is('[instanceof Hb180.Voice:Mixin.Response]') && !q(documentNode).find('main').children().count()} @children="value">
+                    <div class="component-view">
+                        <div class="component-body">
+                        Click to add component
+                        </div>
+                    </div>
+                </Neos.Neos:ContentElementWrapping>
+            </div>
+        </div>
+    `
+
+    prototype(Neos.Neos:Editable){
+        renderer{
+            simpleValue {
+                @position = 'start'
+                condition = ${!q(props.node.nodeType.localConfiguration.properties).get(props.property).ui.inlineEditable}
+                renderer = ${props.frontValue}
+            }
+        }
+
+    }
+}
+
+json = Neos.Fusion:Http.Message{
+    httpResponseHead.headers{
+        Content-Type = 'application/json; charset=UTF-8'
+    }
+    renderer = Hb180.Voice:Body
+    renderer.@process.jsonView = ${Json.stringify(value)}
+
+    @cache {
+        mode = 'cached'
+
+        entryIdentifier {
+            collection = ${node}
+        }
+
+        entryTags {
+            1 = ${Neos.Caching.descendantOfTag(node)}
+            2 = ${Neos.Caching.nodeTag(node)}
+        }
+
+        maximumLifetime = ${q(node).context({'invisibleContentShown': true}).children().cacheLifetime()}
+    }
+}

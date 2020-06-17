@@ -1,0 +1,156 @@
+* {
+    font-family: "Source Sans Pro", sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0.04rem;
+}
+
+.neos-backend{
+    background-color: #3f3f3f;
+}
+
+.break-word{
+    word-break: break-all;
+}
+
+.page-container{
+    margin: 0 auto 20px auto;
+    width: 400px;
+}
+
+.page{
+    width: 100%;
+    background: #e8eaed;
+    display: inline-block;
+}
+
+.component-view{
+    position: relative;
+    border: 1px solid #d6dae0;
+    border-radius: 0 10px 10px 10px;
+    padding: 20px;
+    background: white;
+    margin: 20px;
+    z-index: auto;
+}
+
+.component-view:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 14px solid transparent;
+    border-bottom-color: #d6dae0;
+    border-top: 0;
+    border-left: 0;
+    margin-left: -1px;
+    margin-top: -15px;
+}
+
+.component-view:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-bottom-color: white;
+    border-top: 0;
+    border-left: 0;
+    margin-left: 0px;
+    margin-top: -12px;
+}
+
+.component-view .component-body{
+    overflow: hidden;
+}
+
+.page [class*=suggestions].component-view:last-child, .page [class*=linkout].component-view:last-child{
+    margin-bottom: 0px;
+}
+
+div[class*=basiccard]{
+    /*background: red;*/
+}
+
+.image img{
+    width: 100%;
+}
+
+.title{
+    font-weight: bold;
+    /*letter-spacing: 0.04rem;*/
+}
+
+.subtitle{
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: gray;
+}
+.text{
+    padding: 10px;
+    font-size: 0.8rem;
+}
+
+.text-uppercase{
+    text-transform: uppercase;
+}
+
+.text-color-blue{
+    color: #1a73e8;
+}
+
+button, .button{
+    background: white;
+    border: 1px solid #aac9ff;
+    border-radius: 45px;
+    padding: 10px 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    position: relative;
+    cursor: initial;
+}
+
+.button-wide{
+    width: 100%;
+}
+
+.button-border-color-lightgray{
+    border-color: #EAECEF;
+}
+
+div[class*=suggestions], div[class*=linkout]{
+    margin-right: 0;
+    margin-left: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+div[class*=suggestions]:after, div[class*=suggestions]:before, div[class*=linkout]:after, div[class*=linkout]:before{
+    content: none;
+}
+
+div[class*=suggestions] .button{
+    margin-right: 10px;
+}
+
+.icon svg{
+    max-heigh: 16px;
+}
+
+.button .icon{
+    position: absolute;
+    left: 15px;
+    top: 10px;
+}
+
+.button-external{
+    padding-left: 50px;
+}
+
+.table-cell{
+    display: inline;
+}

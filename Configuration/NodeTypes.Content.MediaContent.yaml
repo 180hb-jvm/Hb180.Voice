@@ -1,0 +1,42 @@
+Hb180.Voice:MediaContent:
+  superTypes:
+    Hb180.Voice:ContentMixin: TRUE
+  ui:
+    label: 'Media Content'
+    icon: icon-play
+  options:
+    contentType: AUDIO
+  properties:
+    url:
+      type: 'Neos\Media\Domain\Model\Asset'
+      ui:
+        reloadIfChanged: true
+        label: 'Audio'
+        inspector:
+          group: 'props'
+          editorOptions:
+            accept:
+              - 'audio/mpeg'
+              - 'audio/mp3'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+    name:
+      type: string
+      ui:
+        label: Name
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Name...'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+    description:
+      type: string
+      ui:
+        label: Description
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Description...'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []

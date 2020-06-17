@@ -1,0 +1,33 @@
+prototype(Hb180.Voice:MediaContent.DataStructure) < prototype(Hb180.Voice:DefaultContentElement){
+    prototype(Hb180.Voice:PropertyValueRenderer){
+        value.@process.test = Neos.Fusion:Case{
+            url {
+                condition = ${itemKey == 'url'}
+                renderer = Neos.Fusion:ResourceUri{
+                    resource = ${value.resource}
+                }
+            }
+            default{
+                condition = ${true}
+                renderer = ${value}
+            }
+        }
+    }
+}
+
+prototype(Hb180.Voice:MediaContent) < prototype(Neos.Fusion:Component){
+    renderer = afx`
+            <div class="title">
+                <Neos.Neos:Editable property="name" />
+            </div>
+            <div class="subtitle">
+                <Neos.Neos:Editable property="description" />
+            </div>
+            <div class="text">
+                <audio controls="true">
+                    <source src={component.data.url} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+    `
+}

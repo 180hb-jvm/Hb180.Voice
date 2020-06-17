@@ -1,0 +1,42 @@
+prototype(Hb180.Voice:Body) < prototype(Neos.Fusion:DataStructure){
+    node = ${node}
+    @ignoreProperties = ${pageView?[]:['node']}
+    dailyContentElement = Hb180.Voice:DailyContentElements
+    dailyContentElementGeneralType = ${node.nodeType.localConfiguration.options.contentType}
+}
+
+prototype(Hb180.Voice:DatePageContent) < prototype(Neos.Neos:ContentComponent){
+    renderer = Neos.Fusion:Case{
+        @process.div = afx`
+            <div class="component-view" class.@process.nodeClass={value+' '+String.toLowerCase(String.pregReplace( node.nodeType.name , '/[[:^alnum:]]/', '-'))}>
+                <div class="component-body">
+                    {value}
+                </div>
+            </div>
+        `
+        nodeType{
+            condition = Neos.Fusion:CanRender {
+                type = ${q(node).property('_nodeType.name')}
+            }
+            type = ${q(node).property('_nodeType.name')}
+        }
+
+        default{
+            condition = ${true}
+            renderer = afx`
+                <h3>{node.label}</h3>
+                <div class="help">{node.nodeType.localConfiguration.options.help?'?'+node.nodeType.localConfiguration.options.help:''}</div>
+                <table>
+                    <Neos.Fusion:Loop items={component.data}>
+                        <tr>
+                            <td class="title">{itemKey}</td>
+                            <td class="break-word">
+                                <Neos.Neos:Editable property={itemKey} node={node} frontValue={item} />
+                            </td>
+                        </tr>
+                    </Neos.Fusion:Loop>
+                </table>
+            `
+        }
+    }
+}

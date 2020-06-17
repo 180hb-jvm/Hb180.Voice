@@ -1,0 +1,8 @@
+Hb180.Voice:ContentCollection:
+  superTypes:
+    Neos.Neos:ContentCollection: TRUE
+  constraints:
+    nodeTypes:
+      "*": FALSE
+      Neos.Neos:Content: FALSE
+      Hb180.Voice:ContentMixin: TRUE

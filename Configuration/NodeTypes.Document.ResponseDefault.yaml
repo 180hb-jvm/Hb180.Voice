@@ -1,0 +1,8 @@
+'Hb180.Voice:ResponseDefault':
+  superTypes:
+    'Hb180.Voice:Mixin.Response': TRUE
+  options:
+    contentType: DEFAULT
+  ui:
+    icon: 'icon-comment-dots'
+    label: 'Response Default'

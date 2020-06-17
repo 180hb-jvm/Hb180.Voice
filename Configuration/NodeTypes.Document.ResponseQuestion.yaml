@@ -1,0 +1,8 @@
+'Hb180.Voice:ResponseQuestion':
+  superTypes:
+    'Hb180.Voice:Mixin.Response': TRUE
+  options:
+    contentType: QUESTION
+  ui:
+    icon: 'icon-question'
+    label: 'Response Question'

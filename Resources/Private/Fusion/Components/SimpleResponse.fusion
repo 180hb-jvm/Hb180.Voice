@@ -1,0 +1,43 @@
+prototype(Hb180.Voice:SimpleResponse.DataStructure) < prototype(Hb180.Voice:DefaultContentElement){
+    audio = Neos.Fusion:ResourceUri{
+        @if.notEmpty = ${node.properties.audio?TRUE:FALSE}
+        resource = ${node.properties.audio.resource}
+        @process.tag = afx`
+            <audio src={value} />
+        `
+    }
+
+    prototype(Hb180.Voice:PropertyValueRenderer){
+        value.@process.test = Neos.Fusion:Case{
+            audio {
+                condition = ${itemKey == 'speech' && props.audio && String.indexOf(q(node).property(itemKey), '{audio}') != (0-1)}
+                renderer = afx`
+                    <speak>{String.replace(q(node).property(itemKey), '{audio}', props.audio)}</speak>
+                `
+            }
+            audioAtEnd {
+                condition = ${itemKey == 'speech' && props.audio}
+                renderer = afx`
+                    <speak>{q(node).property(itemKey)}{props.audio}</speak>
+                `
+            }
+            speech{
+                condition = ${itemKey == 'speech'}
+                renderer = afx`
+                    <speak>{value}</speak>
+                `
+            }
+            default{
+                condition = ${true}
+                renderer = ${Content.br2nl(value)}
+            }
+        }
+//        value.@process.htmlSpecial = ${node.context.inBackend?String.htmlSpecialChars(value):value}
+    }
+}
+
+prototype(Hb180.Voice:SimpleResponse) < prototype(Neos.Fusion:Component){
+    renderer = afx`
+        <Neos.Neos:Editable property="text" />
+    `
+}

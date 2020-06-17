@@ -1,0 +1,23 @@
+Hb180.Voice:Suggestions:
+  superTypes:
+    Hb180.Voice:ContentMixin: TRUE
+  ui:
+    label: 'Suggestions'
+    inlineEditable: true
+    icon: icon-tags
+  options:
+    contentType: SUGGESTIONS
+  properties:
+    elements:
+      type: string
+      options:
+        hideFromResponse: true
+      ui:
+        label: Suggestions
+        reloadIfChanged: true
+        help:
+          message: 'To add another use "|" as separator'
+        inspector:
+          group: props
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []

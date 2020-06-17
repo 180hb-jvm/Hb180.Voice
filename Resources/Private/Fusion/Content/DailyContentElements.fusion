@@ -1,0 +1,40 @@
+prototype(Hb180.Voice:DailyContentElements) < prototype(Neos.Fusion:Map){
+    @context.suffix = '.DataStructure'
+    items = ${Content.getItems(q(node).children())}
+    itemName = 'node'
+    itemRenderer = Neos.Fusion:Case{
+        contentPrototype {
+            condition = Neos.Fusion:CanRender {
+                type = ${q(node).property('_nodeType.name')+suffix}
+            }
+            renderer = Hb180.Voice:ContentElement
+        }
+        default{
+            condition = ${true}
+            renderer = Hb180.Voice:ContentElement{
+                data = Hb180.Voice:DefaultContentElement
+            }
+        }
+    }
+}
+
+prototype(Hb180.Voice:ContentElement) < prototype(Neos.Fusion:DataStructure){
+    node = ${node}
+    @ignoreProperties = ${pageView?[]:['node']}
+    type = ${node.nodeType.localConfiguration.options.contentType}
+    data = Neos.Fusion:Renderer{
+        type = ${q(node).property('_nodeType.name')+suffix}
+    }
+}
+
+prototype(Hb180.Voice:DefaultContentElement) < prototype(Neos.Fusion:Component){
+    renderer = Neos.Fusion:Map{
+        items = ${node.nodeType.localConfiguration.properties}
+        items.@process.hideFromResponse = ${value?Neos.Array.filterNegated(value, 'options.hideFromResponse'):value}
+        itemRenderer = Hb180.Voice:PropertyValueRenderer
+    }
+}
+
+prototype(Hb180.Voice:PropertyValueRenderer) < prototype(Neos.Fusion:Value){
+    value = ${q(node).property(itemKey)}
+}

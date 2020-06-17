@@ -1,0 +1,17 @@
+prototype(Hb180.Voice:Suggestions.DataStructure) < prototype(Hb180.Voice:DefaultContentElement){
+//    url = Neos.Fusion:ResourceUri{
+//        @if.notEmpty = ${node.properties.url?TRUE:FALSE}
+//        resource = ${node.properties.url.resource}
+//    }
+
+    renderer = ${String.split(q(node).property('elements'), "|")}
+}
+
+prototype(Hb180.Voice:Suggestions) < prototype(Neos.Fusion:Component){
+    renderer = afx`
+        <Neos.Fusion:Loop items={component.data}>
+            <button class="button button-border-color-lightgray">{item}</button>
+        </Neos.Fusion:Loop>
+        <button @if.test={!component.data} class="button button-border-color-lightgray">Click to add suggestion</button>
+    `
+}

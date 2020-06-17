@@ -1,0 +1,82 @@
+Hb180.Voice:BasicCard:
+  superTypes:
+    Hb180.Voice:ContentMixin: TRUE
+  ui:
+    label: 'Basic Card'
+    icon: icon-id-card
+  options:
+    contentType: IMAGE
+  properties:
+    url:
+      type: 'Neos\Media\Domain\Model\ImageInterface'
+      ui:
+        label: 'Image'
+        reloadIfChanged: true
+        inspector:
+          group: 'props'
+          editorOptions:
+            features:
+              crop: true
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+    alt:
+      type: string
+      ui:
+        label: Alt
+#        inlineEditable: true
+#        inline:
+#          editorOptions:
+#            placeholder: 'Alt...'
+        inspector:
+          group: 'props'
+    subtitle:
+      type: string
+      ui:
+        label: Subtitle
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Subtitle...'
+#      validation:
+#        'Neos.Neos/Validation/NotEmptyValidator': []
+    title:
+      type: string
+      ui:
+        label: Title
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Title...'
+#      validation:
+#        'Neos.Neos/Validation/NotEmptyValidator': []
+    text:
+      type: string
+      ui:
+        label: Text
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Text...'
+    display:
+      type: string
+      defaultValue: CROPPED
+    buttonText:
+      type: string
+      ui:
+        label: Button text
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Button text...'
+#      validation:
+#        'Neos.Neos/Validation/NotEmptyValidator': []
+    buttonUrl:
+      type: string
+      ui:
+        label: Button url
+        reloadIfChanged: true
+        inspector:
+          group: props
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'
+#      validation:
+#        'Neos.Neos/Validation/NotEmptyValidator': []
