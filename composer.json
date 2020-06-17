@@ -5,7 +5,7 @@
     "require": {
         "neos/neos": "*",
         "neos/flow": "*",
-        "neos/nodetypes": "*",
+        "neos/nodetypes": "*"
     },
     "autoload": {
         "psr-4": {
