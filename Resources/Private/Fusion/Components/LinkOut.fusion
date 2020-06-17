@@ -3,7 +3,7 @@ prototype(Hb180.Voice:LinkOut) < prototype(Neos.Fusion:Component){
     renderer = afx`
         <button class="button button-border-color-lightgray button-external">
             <div class="icon">
-                <Neos.Fusion:Template templatePath="resource://Hb180.Mobiliar/Public/Images/external-link.svg"/>
+                <Neos.Fusion:Template templatePath="resource://Hb180.Voice/Public/Images/external-link.svg"/>
             </div>
             <Neos.Neos:Editable property="name" />
         </button>

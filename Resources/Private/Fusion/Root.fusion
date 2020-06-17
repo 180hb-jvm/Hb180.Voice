@@ -12,7 +12,7 @@ page = Neos.NodeTypes:Page{
                 attributes{
                     rel = 'stylesheet'
                     href = Neos.Fusion:ResourceUri{
-                        path = 'resource://Hb180.Mobiliar/Public/Styles/backend.css'
+                        path = 'resource://Hb180.Voice/Public/Styles/backend.css'
                         @process.timestamp = ${value+'?v='+Date.today().timestamp}
                     }
                 }
