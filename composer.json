@@ -6,7 +6,6 @@
         "neos/neos": "*",
         "neos/flow": "*",
         "neos/nodetypes": "*",
-        "mireo91/repeatablefields": "^1.7"
     },
     "autoload": {
         "psr-4": {

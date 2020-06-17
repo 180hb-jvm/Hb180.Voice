@@ -9,21 +9,15 @@ Hb180.Voice:Suggestions:
     contentType: SUGGESTIONS
   properties:
     elements:
-      type: repeatable
+      type: string
       options:
         hideFromResponse: true
       ui:
-        label: Elements
+        label: Suggestions
         reloadIfChanged: true
+        help:
+          message: 'To add another use "|" as separator'
         inspector:
           group: props
-          editorOptions:
-            buttonAddLabel: 'Add new element'
-            properties:
-              text:
-                editorOptions:
-                  placeholder: 'Text'
-                validation:
-                  'Neos.Neos/Validation/NotEmptyValidator': []
       validation:
         'Neos.Neos/Validation/NotEmptyValidator': []

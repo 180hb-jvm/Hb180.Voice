@@ -4,7 +4,7 @@ prototype(Hb180.Voice:Suggestions.DataStructure) < prototype(Hb180.Voice:Default
 //        resource = ${node.properties.url.resource}
 //    }
 
-    renderer = ${q(node).property('elements.text')}
+    renderer = ${String.split(q(node).property('elements'), "|")}
 }
 
 prototype(Hb180.Voice:Suggestions) < prototype(Neos.Fusion:Component){
