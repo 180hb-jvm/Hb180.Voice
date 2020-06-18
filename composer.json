@@ -1,9 +1,10 @@
 {
-    "description": "",
+    "description": "Provides basic content elements to use Neos as content repository for your chatbot or Action on Google.",
+    "license": "MIT",
     "type": "neos-site",
     "name": "hb180/voice",
     "require": {
-        "neos/neos": "*",
+        "neos/neos": "^4.3 || ^5.0 || dev-master",
         "neos/flow": "*",
         "neos/nodetypes": "*"
     },
