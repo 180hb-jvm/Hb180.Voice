@@ -10,7 +10,7 @@ Hb180.Voice:SimpleResponse:
     speech:
       type: string
       ui:
-        label: Speech
+        label: 'SSML Speech'
         reloadIfChanged: true
 #        help:
 #          message: 'If you want to set audio tag in diffirent location than to the end of text then use "{audio}" it will be replaced with audio tag'
@@ -22,7 +22,7 @@ Hb180.Voice:SimpleResponse:
     text:
       type: string
       ui:
-        label: Text
+        label: 'Text'
         inlineEditable: true
         inline:
           editorOptions:
